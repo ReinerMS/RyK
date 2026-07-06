@@ -215,18 +215,19 @@
   <div class="grid md:grid-cols-2 gap-8">
 
     <div class="glass-card rounded-2xl p-10 text-center reveal shadow-sm">
-      <p class="text-xs tracking-[0.3em] uppercase mb-3" style="color:var(--gold)">Nos conocimos</p>
+      <p class="text-xs tracking-[0.3em] uppercase mb-3" style="color:var(--gold)">Nos conocimos desde</p>
       <h2 class="display text-3xl mb-2" style="color:var(--rose-700)">6 de diciembre, 2025</h2>
       <div class="ornament my-4"></div>
       <p id="daysKnown" class="display text-2xl leading-relaxed" style="color:var(--rose-500)">...</p>
     </div>
 
     <div class="glass-card rounded-2xl p-10 text-center reveal shadow-sm">
-      <p class="text-xs tracking-[0.3em] uppercase mb-3" style="color:var(--gold)">Somos novios</p>
+      <p class="text-xs tracking-[0.3em] uppercase mb-3" style="color:var(--gold)">Somos novios desde</p>
       <h2 class="display text-3xl mb-2" style="color:var(--rose-700)">21 de marzo, 2026</h2>
       <div class="ornament my-4"></div>
       <p id="daysDating" class="display text-2xl leading-relaxed" style="color:var(--rose-500)">...</p>
     </div>
+
 
   </div>
 
@@ -277,8 +278,8 @@
 <script>
 
 /* ---------- Contadores en vivo ---------- */
-const knownDate = new Date("2025-12-06T00:00:00");
-const datingDate = new Date("2026-03-21T00:00:00");
+const knownDate = new Date("2025-12-06T23:30:00");
+const datingDate = new Date("2026-03-21T21:00:00");
 
 function formatElapsed(fromDate){
   const now = new Date();
