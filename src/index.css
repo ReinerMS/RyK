@@ -157,3 +157,23 @@ body {
     display: none;
   }
 }
+
+/* --- Flecha de scroll --- */
+.scroll-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  animation: arrowBounce 1.8s ease-in-out infinite;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.scroll-arrow:hover {
+  opacity: 1;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
