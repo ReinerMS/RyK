@@ -73,35 +73,6 @@ body {
   border: 1px solid rgba(201, 161, 90, 0.25);
 }
 
-/* --- Vines --- */
-.vine-rail {
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  width: 120px;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-.vine-rail.left { left: 0; }
-.vine-rail.right { right: 0; transform: scaleX(-1); }
-
-.vine-rail svg {
-  position: absolute;
-  left: 0;
-  width: 120px;
-}
-
-.vine-path {
-  fill: none;
-  stroke: var(--color-leaf);
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-dasharray: 2600;
-  stroke-dashoffset: 2600;
-  animation: draw 5s ease forwards;
-}
-
 @keyframes draw {
   to { stroke-dashoffset: 0; }
 }
@@ -144,15 +115,45 @@ body {
   40% { transform: translateY(-4px); opacity: 1; }
 }
 
-@media (max-width: 768px) {
-  .vine-rail { width: 56px; }
-  .vine-rail svg { width: 56px; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Pétalos cayendo --- */
+.petals-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -10%;
+  animation-name: petalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
+}
+
+@keyframes petalFall {
+  from {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    animation: none;
+    display: none;
   }
 }

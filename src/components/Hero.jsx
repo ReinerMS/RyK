@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="min-h-screen flex items-center justify-center px-6 relative">
       <div className="max-w-3xl text-center">
         <Ornament className="mb-6">
-          <span className="text-sm tracking-[0.35em] uppercase text-gold">Para ti</span>
+          <span className="text-sm tracking-[0.35em] uppercase text-gold">R&K</span>
         </Ornament>
 
         <h1 className="font-script text-6xl md:text-8xl leading-tight text-rose-700">
