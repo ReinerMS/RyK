@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Poppins:wght@200;300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-rose-50: #fdf3f5;
+  --color-rose-100: #f9e4ea;
+  --color-rose-300: #e8a9bb;
+  --color-rose-500: #c9647e;
+  --color-rose-700: #9c3d57;
+  --color-gold: #c9a15a;
+  --color-leaf: #7c9070;
+  --color-leaf-dark: #5c6f52;
+  --color-cream: #fffaf6;
+  --color-ink: #4a3b3f;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-sans: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(233, 169, 187, 0.15), transparent 40%),
+    radial-gradient(circle at 85% 60%, rgba(201, 161, 90, 0.10), transparent 45%),
+    linear-gradient(to bottom, var(--color-rose-50), var(--color-cream) 30%, var(--color-rose-50));
+  overflow-x: hidden;
+  position: relative;
+}
+
+::selection {
+  background: var(--color-rose-300);
+  color: #fff;
+}
+
+/* --- Fade / reveal on scroll --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Hairline ornament --- */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  height: 1px;
+  width: 48px;
+  background: linear-gradient(to right, transparent, var(--color-gold));
+}
+.ornament::after {
+  background: linear-gradient(to left, transparent, var(--color-gold));
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(201, 161, 90, 0.25);
+}
+
+/* --- Vines --- */
+.vine-rail {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 120px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.vine-rail.left { left: 0; }
+.vine-rail.right { right: 0; transform: scaleX(-1); }
+
+.vine-rail svg {
+  position: absolute;
+  left: 0;
+  width: 120px;
+}
+
+.vine-path {
+  fill: none;
+  stroke: var(--color-leaf);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 2600;
+  stroke-dashoffset: 2600;
+  animation: draw 5s ease forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.leaf {
+  fill: var(--color-leaf);
+  opacity: 0;
+  transform-origin: center;
+  animation: leafIn 0.8s ease forwards, sway 5s ease-in-out infinite;
+}
+
+.bloom {
+  opacity: 0;
+  transform-origin: center;
+  animation: bloomIn 1s ease forwards, sway 6s ease-in-out infinite;
+}
+
+@keyframes leafIn {
+  from { opacity: 0; transform: scale(0) rotate(-20deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes bloomIn {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.dot-bounce {
+  display: inline-block;
+  animation: dotBounce 1.1s ease-in-out infinite;
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .vine-rail { width: 56px; }
+  .vine-rail svg { width: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
