@@ -6,6 +6,6 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   // Base path must match your GitHub repo name for Project Pages
   // (https://<user>.github.io/<repo>/). Change if the repo is renamed.
-  base: '/forkari/',
+  base: '/RyK/',
   plugins: [react(), tailwindcss()],
 })

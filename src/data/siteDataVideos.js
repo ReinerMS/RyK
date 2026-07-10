@@ -31,9 +31,15 @@ export const videoList = [
     youtubeId: 'mWVGj5LBa84',
   },
    {
-    id: 5,
+    id: 6,
     title: 'Cita sorpresa',
     description: 'Cuando no te lo esperabas para nada.',
     youtubeId: 'kLmEmUnEOOY',
+  },
+  {
+    id: 7,
+    title: 'Cita sorpresa',
+    description: 'Cuando no te lo esperabas para nada.',
+    youtubeId: 'WTkAC0MsJaI',
   },
 ]
