@@ -1,14 +1,31 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/RyK/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recuerdo RyK</title>
-    <script type="module" crossorigin src="/RyK/assets/index-YMFBlgjb.js"></script>
-    <link rel="stylesheet" crossorigin href="/RyK/assets/index-YejRCQJx.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/RyK/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuerdo RyK</title>
+  <script type="module" crossorigin src="/RyK/assets/index-YMFBlgjb.js"></script>
+  <link rel="stylesheet" crossorigin href="/RyK/assets/index-YejRCQJx.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    // Complemento del 404.html: si venimos de un redirect, restaura la ruta real
+    (function () {
+      var redirect = window.location.search.slice(1).split('&').find(function (s) {
+        return s.indexOf('/') === 0
+      });
+      if (redirect) {
+        var path = redirect.replace(/~and~/g, '&');
+        window.history.replaceState(null, null, window.location.pathname.replace(/\/$/, '') + path);
+      }
+    })();
+  </script>
+
+  
+</body>
+
 </html>
