@@ -20,7 +20,7 @@ export default function HeaderLayout() {
         
         {/* Logo */}
         <div className="text-xl font-bold tracking-widest z-50">
-          <NavLink to="/" onClick={closeMenu} className="bg-gradient-to-r from-[#ff758c] to-[#ff7eb3] bg-clip-text text-transparent">
+          <NavLink to="/" onClick={closeMenu} className="bg-linear-to-r from-[#ff758c] to-[#ff7eb3] bg-clip-text text-transparent">
            R&K
           </NavLink>
         </div>
@@ -32,9 +32,9 @@ export default function HeaderLayout() {
           aria-label="Toggle Menu"
         >
           <div className="relative w-6 h-5 flex flex-col justify-between items-center">
-            <span className={`h-[2px] w-full bg-white rounded transition-transform duration-300 origin-left ${isOpen ? 'rotate-45 translate-x-[2px]' : ''}`} />
-            <span className={`h-[2px] w-full bg-white rounded transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-            <span className={`h-[2px] w-full bg-white rounded transition-transform duration-300 origin-left ${isOpen ? '-rotate-45 translate-x-[2px]' : ''}`} />
+            <span className={`h-0.5 w-full bg-white rounded transition-transform duration-300 origin-left ${isOpen ? 'rotate-45 translate-x-0.5' : ''}`} />
+            <span className={`h-0.5 w-full bg-white rounded transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+            <span className={`h-0.5 w-full bg-white rounded transition-transform duration-300 origin-left ${isOpen ? '-rotate-45 translate-x-0.5' : ''}`} />
           </div>
         </button>
         
