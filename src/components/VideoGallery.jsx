@@ -2,7 +2,7 @@ import { videoList } from '../data/siteDataVideos'
 
 export default function VideoGallery() {
   return (
-    <div className="grid grid-cols-2 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 max-w-6xl mx-auto">
+    <div className="grid grid-cols-1 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
       {videoList.map((video) => (
         <div 
           key={video.id} 
