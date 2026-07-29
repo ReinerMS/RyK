@@ -1,23 +1,16 @@
 import DatesSection from '../components/DatesSection'
-import InProgressBadge from '../components/InProgressBadge'
+import Reveal from '../components/Reveal'
 
 export default function Citas() {
   return (
-    <div className="mx-auto max-w-6xl text-white animate-fade-in">
-      {/* Puedes agregar un título o decoración superior elegante si quieres */}
-      <div className="text-center mb-5">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff758c]">
-          Nuestros Momentos
-        </span>
-        <h1 className="mt-2 text-2xl font-bold sm:text-4xl text-[#ff758c] text-shadow-md">
-          Hitos en nuestra relación
-        </h1>
-      </div>
+    <div className="mx-auto max-w-6xl">
+      <Reveal className="mb-14 text-center" as="header">
+        <span className="page-eyebrow">Nuestros momentos</span>
+        <h1 className="page-title">Hitos en nuestra relación</h1>
+        <p className="page-subtitle">Cada fecha, un paso más cerca del para siempre.</p>
+      </Reveal>
 
-      {/* Aquí inyectamos tus componentes ya creados */}
-      <div className="">
-        <DatesSection />
-      </div>
+      <DatesSection />
     </div>
   )
 }

@@ -248,3 +248,124 @@ body {
   padding: 0.35rem 0.9rem;
   font-size: 0.75rem;
 }
+
+/* --- Header / navegación --- */
+.site-header {
+  background: rgba(255, 250, 246, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201, 161, 90, 0.25);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(74, 59, 63, 0.62);
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background: linear-gradient(to right, var(--color-gold), var(--color-rose-500));
+  transition: width 0.3s ease;
+}
+.nav-link:hover,
+.nav-link.nav-link-active {
+  color: var(--color-rose-700);
+}
+.nav-link.nav-link-active {
+  font-weight: 600;
+}
+.nav-link:hover::after,
+.nav-link.nav-link-active::after {
+  width: 100%;
+}
+
+.nav-mobile-panel {
+  background: rgba(255, 250, 246, 0.97);
+  backdrop-filter: blur(14px);
+}
+
+.nav-burger-line {
+  background: var(--color-ink);
+}
+
+/* --- Encabezado de página (Citas / Viajes / Videos) --- */
+.page-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.page-title {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-rose-700);
+}
+@media (min-width: 640px) {
+  .page-title {
+    font-size: 3rem;
+  }
+}
+
+.page-subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(74, 59, 63, 0.65);
+}
+
+/* --- Línea de tiempo de hitos --- */
+.timeline-rail {
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: 1.25rem;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--color-gold) 8%, var(--color-gold) 92%, transparent);
+}
+@media (min-width: 640px) {
+  .timeline-rail {
+    left: 1.5rem;
+  }
+}
+
+.timeline-dot {
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 999px;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 4px var(--color-cream), 0 0 0 5px rgba(201, 161, 90, 0.4);
+}
+
+/* --- Enlaces de exploración (Home) --- */
+.explore-link {
+  padding: 0.85rem 1.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 161, 90, 0.4);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-rose-700);
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.25s ease;
+}
+.explore-link:hover {
+  border-color: var(--color-rose-500);
+  background: var(--color-rose-500);
+  color: #fff;
+}

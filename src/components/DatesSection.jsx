@@ -4,8 +4,9 @@ import { siteData } from '../data/siteData'
 
 export default function DatesSection() {
   return (
-    <section className="max-w-5xl mx-auto relative">
-      <div className="grid md:grid-cols-2 gap-8">
+    <section className="relative mx-auto max-w-2xl">
+      <div className="timeline-rail" aria-hidden="true" />
+      <div className="flex flex-col gap-10">
         {siteData.milestones.map((milestone) => (
           <Reveal key={milestone.id}>
             <MilestoneCard {...milestone} />

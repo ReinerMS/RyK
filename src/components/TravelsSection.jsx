@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
-import Ornament from './Ornament'
 import TravelCard from './TravelCard'
 import TravelGalleryModal from './TravelGalleryModal'
 import TravelFilters from './TravelFilters'
@@ -21,12 +20,6 @@ export default function TravelsSection() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-8 relative">
-      <Reveal className="text-center mb-6">
-        <Ornament className="mb-4">
-          <span className="font-script text-3xl text-rose-500">Nuestros viajes</span>
-        </Ornament>
-      </Reveal>
-
       <TravelFilters
         travels={travels}
         year={year}

@@ -1,19 +1,15 @@
 import TravelsSection from '../components/TravelsSection'
+import Reveal from '../components/Reveal'
 
 export default function Viajes() {
   return (
-    <div className="mx-auto max-w-6xl text-white">
-      <div className="mb-5 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#ff758c]">
-          Explorando juntos
-        </span>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-[#fc8b9e]">
-          Nuestros Viajes
-        </h1>
-        <p className="mt-2 text-sm text-[#ff758c]">Cada lugar se vuelve mágico si voy contigo</p>
-      </div>
+    <div className="mx-auto max-w-6xl">
+      <Reveal className="mb-10 text-center" as="header">
+        <span className="page-eyebrow">Explorando juntos</span>
+        <h1 className="page-title">Nuestros viajes</h1>
+        <p className="page-subtitle">Cada lugar se vuelve mágico si voy contigo.</p>
+      </Reveal>
 
-      {/* Renderiza tu sección de viajes existente */}
       <TravelsSection />
     </div>
   )

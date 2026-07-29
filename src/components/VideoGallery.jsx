@@ -4,9 +4,9 @@ export default function VideoGallery() {
   return (
     <div className="grid grid-cols-2 sm:gap-6 gap-2 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
       {videoList.map((video) => (
-        <div 
-          key={video.id} 
-          className="group overflow-hidden rounded-2xl border border-black/5 bg-white/40 p-2 shadow-md backdrop-blur-sm transition-all duration-300 hover:border-black/10 hover:bg-white/60 hover:shadow-lg"
+        <div
+          key={video.id}
+          className="glass-card group overflow-hidden rounded-2xl p-2 shadow-sm transition-transform duration-300 hover:scale-[1.02]"
         >
           {/* Contenedor del Reproductor de YouTube (Aspecto 9:16 Vertical) */}
           <div className="overflow-hidden rounded-xl shadow-inner bg-black/5 aspect-9/16 flex items-center justify-center relative">
@@ -28,12 +28,12 @@ export default function VideoGallery() {
           </div>
 
           {/* Información del Video */}
-          <div className="mt-3 space-y-1 px-1">
-            <h3 className="text-base font-bold tracking-wide text-stone-800 group-hover:text-[#ff536e] transition-colors duration-300 line-clamp-1">
+          <div className="mt-3 space-y-1 px-2 pb-1">
+            <h3 className="font-display text-lg text-rose-700 transition-colors duration-300 group-hover:text-rose-500 line-clamp-1">
               {video.title}
             </h3>
             {video.description && (
-              <p className="text-xs font-medium text-stone-600/80 leading-snug line-clamp-2">
+              <p className="text-xs font-light leading-snug text-ink/70 line-clamp-2">
                 {video.description}
               </p>
             )}
