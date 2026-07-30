@@ -24,7 +24,7 @@ export const familyTree = {
       people: [
         { name: 'Milton', relation: 'Hermano', date: '2002-12-18' },
         // Si tiene novia/esposa, agregala acá y queda como tarjeta de pareja:
-        { name: 'Kimberli', relation: 'Novia', date: 'AAAA-MM-DD' },
+        { name: 'Kimberli', relation: 'Novia', date: '1998-06-10' },
       ],
       marriedSince: null,
     },
