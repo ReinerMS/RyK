@@ -1,21 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Poppins:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Great+Vibes&family=Manrope:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* Paleta base — mismos nombres y valores que usa el artifact de referencia.
+   Todo el resto del CSS (y los alias de Tailwind de abajo) toma color de acá. */
+:root {
+  --paper: #f3eedd;
+  --paper-raised: #fbf8ef;
+  --ink: #211e2b;
+  --ink-soft: #5b5668;
+  --ink-faint: #8b869a;
+  --hairline: rgba(33, 30, 43, 0.14);
+  --hairline-strong: rgba(33, 30, 43, 0.24);
+  --gold: #a97a24;
+  --gold-strong: #8f6318;
+  --gold-soft: rgba(169, 122, 36, 0.14);
+  --reiner: #2c6a6f;
+  --reiner-soft: rgba(44, 106, 111, 0.13);
+  --kari: #9c3c5e;
+  --kari-soft: rgba(156, 60, 94, 0.13);
+  --shadow:
+    0 1px 2px rgba(33, 30, 43, 0.04),
+    0 12px 32px -16px rgba(33, 30, 43, 0.18);
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 9px;
+  --family-sat: 42%;
+  --family-light: 34%;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1b1926;
+    --paper-raised: #241f31;
+    --ink: #f2ede1;
+    --ink-soft: #bcb6c8;
+    --ink-faint: #837d94;
+    --hairline: rgba(242, 237, 225, 0.12);
+    --hairline-strong: rgba(242, 237, 225, 0.22);
+    --gold: #dfab54;
+    --gold-strong: #eabd72;
+    --gold-soft: rgba(223, 171, 84, 0.16);
+    --reiner: #74bcc0;
+    --reiner-soft: rgba(116, 188, 192, 0.14);
+    --kari: #e28aa8;
+    --kari-soft: rgba(226, 138, 168, 0.14);
+    --shadow:
+      0 1px 2px rgba(0, 0, 0, 0.2),
+      0 20px 40px -20px rgba(0, 0, 0, 0.55);
+    --family-sat: 55%;
+    --family-light: 72%;
+    color-scheme: dark;
+  }
+}
+
 @theme {
-  --color-rose-50: #fdf3f5;
-  --color-rose-100: #f9e4ea;
-  --color-rose-300: #e8a9bb;
-  --color-rose-500: #c9647e;
-  --color-rose-700: #9c3d57;
-  --color-gold: #c9a15a;
+  --color-rose-50: #fbf1f0;
+  --color-rose-100: #f4dfe2;
+  --color-rose-300: #dda3ae;
+  --color-rose-500: #b85d78;
+  --color-rose-700: var(--kari);
+  --color-gold: var(--gold);
   --color-leaf: #7c9070;
   --color-leaf-dark: #5c6f52;
-  --color-cream: #fffaf6;
-  --color-ink: #4a3b3f;
+  --color-cream: var(--paper);
+  --color-cream-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-reiner: var(--reiner);
 
-  --font-display: 'Cormorant Garamond', serif;
+  --font-display: 'Fraunces', serif;
   --font-script: 'Great Vibes', cursive;
-  --font-sans: 'Poppins', sans-serif;
+  --font-sans: 'Manrope', sans-serif;
 }
 
 html {
@@ -24,11 +79,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: var(--color-ink);
-  background:
-    radial-gradient(circle at 15% 20%, rgba(233, 169, 187, 0.15), transparent 40%),
-    radial-gradient(circle at 85% 60%, rgba(201, 161, 90, 0.10), transparent 45%),
-    linear-gradient(to bottom, var(--color-rose-50), var(--color-cream) 30%, var(--color-rose-50));
+  color: var(--ink);
+  background: var(--paper);
   overflow-x: hidden;
   position: relative;
 }
@@ -61,16 +113,16 @@ body {
   content: "";
   height: 1px;
   width: 48px;
-  background: linear-gradient(to right, transparent, var(--color-gold));
+  background: linear-gradient(to right, transparent, var(--gold));
 }
 .ornament::after {
-  background: linear-gradient(to left, transparent, var(--color-gold));
+  background: linear-gradient(to left, transparent, var(--gold));
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(201, 161, 90, 0.25);
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow);
 }
 
 @keyframes draw {
@@ -124,38 +176,14 @@ body {
   }
 }
 
-/* --- Pétalos cayendo --- */
-.petals-layer {
+/* --- Partículas ambiente --- */
+.ambient-particles {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
-  overflow: hidden;
-}
-
-.petal {
-  position: absolute;
-  top: -10%;
-  animation-name: petalFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  opacity: 0.8;
-}
-
-@keyframes petalFall {
-  from {
-    transform: translateY(-10vh) rotate(0deg);
-  }
-  to {
-    transform: translateY(110vh) rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .petal {
-    animation: none;
-    display: none;
-  }
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
 }
 
 /* --- Flecha de scroll --- */
@@ -190,7 +218,7 @@ body {
 }
 
 .gallery-content {
-  background: var(--color-cream);
+  background: var(--paper);
   border-radius: 1rem;
   padding: 2rem;
   max-width: 700px;
@@ -226,9 +254,9 @@ body {
 .filter-chip {
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
-  border: 1px solid rgba(201, 161, 90, 0.4);
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
   background: transparent;
-  color: var(--color-ink);
+  color: var(--ink);
   font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -251,15 +279,15 @@ body {
 
 /* --- Header / navegación --- */
 .site-header {
-  background: rgba(255, 250, 246, 0.82);
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(201, 161, 90, 0.25);
+  border-bottom: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
 }
 
 .nav-logo {
   font-family: var(--font-display);
   letter-spacing: 0.3em;
-  color: var(--color-gold);
+  color: var(--gold);
 }
 
 .nav-link {
@@ -268,7 +296,7 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: rgba(74, 59, 63, 0.62);
+  color: color-mix(in srgb, var(--ink) 62%, transparent);
   transition: color 0.3s ease;
 }
 .nav-link::after {
@@ -278,12 +306,12 @@ body {
   bottom: 0;
   height: 1px;
   width: 0;
-  background: linear-gradient(to right, var(--color-gold), var(--color-rose-500));
+  background: linear-gradient(to right, var(--gold), var(--color-rose-500));
   transition: width 0.3s ease;
 }
 .nav-link:hover,
 .nav-link.nav-link-active {
-  color: var(--color-rose-700);
+  color: var(--kari);
 }
 .nav-link.nav-link-active {
   font-weight: 600;
@@ -294,12 +322,12 @@ body {
 }
 
 .nav-mobile-panel {
-  background: rgba(255, 250, 246, 0.97);
+  background: color-mix(in srgb, var(--paper) 97%, transparent);
   backdrop-filter: blur(14px);
 }
 
 .nav-burger-line {
-  background: var(--color-ink);
+  background: var(--ink);
 }
 
 /* --- Encabezado de página (Citas / Viajes / Videos) --- */
@@ -308,14 +336,14 @@ body {
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--gold);
 }
 
 .page-title {
   margin-top: 0.5rem;
   font-family: var(--font-display);
   font-size: 2rem;
-  color: var(--color-rose-700);
+  color: var(--kari);
 }
 @media (min-width: 640px) {
   .page-title {
@@ -327,7 +355,7 @@ body {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   font-weight: 300;
-  color: rgba(74, 59, 63, 0.65);
+  color: color-mix(in srgb, var(--ink) 65%, transparent);
 }
 
 /* --- Línea de tiempo de hitos --- */
@@ -337,7 +365,7 @@ body {
   bottom: 0.75rem;
   left: 1.25rem;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--color-gold) 8%, var(--color-gold) 92%, transparent);
+  background: linear-gradient(to bottom, transparent, var(--gold) 8%, var(--gold) 92%, transparent);
 }
 @media (min-width: 640px) {
   .timeline-rail {
@@ -349,23 +377,67 @@ body {
   height: 0.75rem;
   width: 0.75rem;
   border-radius: 999px;
-  background: var(--color-gold);
-  box-shadow: 0 0 0 4px var(--color-cream), 0 0 0 5px rgba(201, 161, 90, 0.4);
+  background: var(--gold);
+  box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px color-mix(in srgb, var(--gold) 40%, transparent);
 }
 
 /* --- Enlaces de exploración (Home) --- */
 .explore-link {
   padding: 0.85rem 1.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(201, 161, 90, 0.4);
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
   font-family: var(--font-display);
   font-size: 1.05rem;
-  color: var(--color-rose-700);
-  background: rgba(255, 255, 255, 0.5);
+  color: var(--kari);
+  background: color-mix(in srgb, var(--paper-raised) 50%, transparent);
   transition: all 0.25s ease;
 }
 .explore-link:hover {
   border-color: var(--color-rose-500);
   background: var(--color-rose-500);
   color: #fff;
+}
+
+/* --- Cumpleaños --- */
+.birthday-ring circle {
+  fill: none;
+}
+.birthday-ring .ring-progress {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.4rem;
+  padding: 0.45rem 0.35rem 0.4rem;
+  border-radius: 0.75rem;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.family-dot {
+  background: hsl(var(--hue, 30) var(--family-sat) var(--family-light));
+}
+
+.cradle-rock {
+  transform-box: fill-box;
+  transform-origin: 50% 88%;
+  animation: cradleRock 2.6s ease-in-out infinite;
+}
+
+@keyframes cradleRock {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birthday-ring .ring-progress {
+    transition: none;
+  }
+  .cradle-rock {
+    animation: none;
+  }
 }

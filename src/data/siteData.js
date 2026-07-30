@@ -36,6 +36,14 @@ export const siteData = {
     },
   ],
 
+  birthdays: {
+    reiner: { name: 'Reiner', date: '1995-08-12', accent: 'reiner' },
+    kari: { name: 'Kari', date: '2002-12-19', accent: 'kari' },
+    // Todavía no hay fecha: dejá `date: null` y la tarjeta muestra la cuna en espera.
+    // Cuando la sepamos (fecha probable de parto o de nacimiento), poné 'AAAA-MM-DD' acá.
+    child: { name: 'Nuestro bebé', date: null },
+  },
+
   letterTitle: 'Gracias por todo',
   letterParagraphs: [
     'Gracias por tu paciencia, por tu cariño, por tu apoyo incondicional ' +

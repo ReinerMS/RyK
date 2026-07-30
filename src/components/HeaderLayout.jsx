@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import FallingPetals from './FallingPetals'
+import AmbientParticles from './AmbientParticles'
 
 export default function HeaderLayout() {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,7 +13,7 @@ export default function HeaderLayout() {
 
   return (
     <div className="min-h-screen">
-      <FallingPetals />
+      <AmbientParticles />
 
       {/* Header fijo */}
       <header className="site-header fixed top-0 left-0 z-50 flex w-full items-center justify-between px-[6%] py-4">
@@ -52,6 +52,9 @@ export default function HeaderLayout() {
           </NavLink>
           <NavLink to="/viajes" onClick={closeMenu} className={linkClass}>
             Viajes
+          </NavLink>
+          <NavLink to="/cumpleanos" onClick={closeMenu} className={linkClass}>
+            Cumpleaños
           </NavLink>
           <NavLink to="/videos" onClick={closeMenu} className={linkClass}>
             Videos

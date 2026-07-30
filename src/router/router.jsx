@@ -3,6 +3,7 @@ import Home from '../pages/Home'
 import Citas from '../pages/Citas'
 import Viajes from '../pages/Viajes'
 import Videos from '../pages/Videos'
+import Cumpleanos from '../pages/Cumpleanos'
 import HeaderLayout from '../components/HeaderLayout'
 import NotFound from '../pages/NotFound'
 
@@ -15,6 +16,7 @@ export const router = createBrowserRouter(
         { path: '/citas', element: <Citas /> },
         { path: '/viajes', element: <Viajes /> },
         { path: '/videos', element: <Videos /> },
+        { path: '/cumpleanos', element: <Cumpleanos /> },
         { path: '*', element: <NotFound /> }, // 👈 va aquí dentro, como hijo del layout
       ],
     },
