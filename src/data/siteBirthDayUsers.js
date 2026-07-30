@@ -40,17 +40,17 @@ export const familyTree = {
       id: 'papás',
       title: 'papás',
       people: [
-        { name: 'Ileana', relation: 'Mamá', date: '1975-08-20' },
-        { name: 'Alberto', relation: 'Papá', date: '1975-08-20' }
+        { name: 'Ileana', relation: 'Mamá', date: '1980-10-21' },
+        { name: 'Alberto', relation: 'Papá', date: '1980-04-04' }
 
       ],
-      marriedSince: '1975-08-20',
+      marriedSince: '2002-04-20',
     },
     {
       id: 'hermano',
       title: null,
       people: [
-        { name: 'Emanuel', relation: 'Hermano', date: '1975-08-20' },
+        { name: 'Emanuel', relation: 'Hermano', date: '2007-08-22' },
 
       ],
       marriedSince: null,
