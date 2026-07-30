@@ -16,7 +16,7 @@ export const familyTree = {
         { name: 'Cheryl', relation: 'Mamá', date: '1975-07-24' },
         { name: 'Rody', relation: 'Papá', date: '1969-09-13' },
       ],
-      marriedSince: '1970-05-03',
+      marriedSince: '1993-04-10',
     },
     {
       id: 'milton',
